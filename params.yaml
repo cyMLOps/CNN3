@@ -1,6 +1,6 @@
 # file params.yaml
 # to pass through strings / integers
 train:
-    lr: 0.1
+    lr: 0.001
     momentum: 0.9
     epochs: 10
