@@ -1,0 +1,59 @@
+schema: '2.0'
+stages:
+  prepare:
+    cmd: python src/prepare.py
+    deps:
+    - path: src/prepare.py
+      md5: 8cdcf94c001951d12a683ec2bb81c153
+      size: 1048
+    - path: train
+      md5: b327c642538be3874f0856f44292f621.dir
+      size: 571915376
+      nfiles: 25000
+    outs:
+    - path: dataset_dogs_and_cats
+      md5: 82f1195a2a6a80669ea64fd05cc22732.dir
+      size: 571915376
+      nfiles: 25000
+  train:
+    cmd: python src/train.py
+    deps:
+    - path: dataset_dogs_and_cats
+      md5: 82f1195a2a6a80669ea64fd05cc22732.dir
+      size: 571915376
+      nfiles: 25000
+    - path: src/train.py
+      md5: b7baa01c34208b44f3e56455361aec62
+      size: 2168
+    params:
+      params.yaml:
+        train:
+          lr: 0.1
+          momentum: 0.9
+          epochs: 10
+    outs:
+    - path: history.pkl
+      md5: 5c53aef8be4e4d13acbc347784ad7748
+      size: 436
+    - path: model.h5
+      md5: 19cd0ba91b2fcc4737fdc72838705fe2
+      size: 84637304
+  evaluate:
+    cmd: python src/evaluate.py
+    deps:
+    - path: history.pkl
+      md5: 5c53aef8be4e4d13acbc347784ad7748
+      size: 436
+    - path: model.h5
+      md5: 19cd0ba91b2fcc4737fdc72838705fe2
+      size: 84637304
+    - path: src/evaluate.py
+      md5: 23ca865c0ba8e25d45ba12b01df99440
+      size: 2345
+    outs:
+    - path: plot.json
+      md5: 69b4201aaa8ae3652588923a52803f7a
+      size: 627
+    - path: score.json
+      md5: cf9b1b668ba8fa4d042b09d647bdd2db
+      size: 27

@@ -6,7 +6,7 @@ from shutil import copyfile
 from random import seed
 from random import random
 # create directories
-dataset_home = 'dataset_dogs_vs_cats/'
+dataset_home = 'dataset_dogs_and_cats/'
 subdirs = ['train/', 'test/']
 for subdir in subdirs:
  # create label subdirectories
