@@ -52,7 +52,7 @@ def run_fit():
     # save model, history, weights
 	model.save('model.h5')
 	pickle.dump(history.history, open('history.pkl', 'wb'))
-	model.save_weights('pretrained_weights.h5')
+	model.save_weights('weights.h5')
 	print('-------files created-------')
     
     

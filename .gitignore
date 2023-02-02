@@ -2,3 +2,6 @@
 /history.pkl
 /model.h5
 /pretrained_weights.h5
+/train_director.txt
+/weights.h5
+/train_dataset.txt

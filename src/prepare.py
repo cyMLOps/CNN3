@@ -32,4 +32,19 @@ for file in listdir(src_directory):
     dst = dataset_home + dst_dir + 'dogs/'  + file
     copyfile(src, dst)
 
+# create txt file on directory of training data
+train_directory = dataset_home + subdirs[0]
+image_list = []
+
+for l in labeldirs:
+    train_class_directory = train_directory + l
+    for img in listdir(train_class_directory):
+        image_list.append(train_class_directory + img)
+
+with open('train_dataset.txt', 'w') as f:  
+    for img in image_list:      
+        f.write(img)
+        f.write('\n')
+
+
 print('------images created-----')

@@ -6,6 +6,7 @@ stages:
     - train
     outs:
     - dataset_dogs_and_cats
+    - 'train_dataset.txt'
   train:
     cmd: python src/train.py
     deps:
@@ -16,7 +17,7 @@ stages:
     outs:
     - history.pkl
     - model.h5
-    - pretrained_weights.h5
+    - weights.h5
   evaluate:
     cmd: python src/evaluate.py
     deps:

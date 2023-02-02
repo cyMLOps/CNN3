@@ -4,8 +4,8 @@ stages:
     cmd: python src/prepare.py
     deps:
     - path: src/prepare.py
-      md5: 8cdcf94c001951d12a683ec2bb81c153
-      size: 1048
+      md5: 8a073ef60d11a2157ad1fe3dca757118
+      size: 1465
     - path: train
       md5: b327c642538be3874f0856f44292f621.dir
       size: 571915376
@@ -15,6 +15,9 @@ stages:
       md5: 82f1195a2a6a80669ea64fd05cc22732.dir
       size: 571915376
       nfiles: 25000
+    - path: train_dataset.txt
+      md5: 12811718fb03c499eba74116ce5e905a
+      size: 880871
   train:
     cmd: python src/train.py
     deps:
@@ -23,8 +26,8 @@ stages:
       size: 571915376
       nfiles: 25000
     - path: src/train.py
-      md5: a0d918a77afc55b07a3922d0b0a134ed
-      size: 2235
+      md5: ebb865424aa6308880cfeb8dbc4aa29a
+      size: 2224
     params:
       params.yaml:
         train:
@@ -33,30 +36,30 @@ stages:
           epochs: 1
     outs:
     - path: history.pkl
-      md5: 6cfa7f80059868580bee732d136559d1
+      md5: 4f4a236bd85a476f529ae37d8d5b90d9
       size: 108
     - path: model.h5
-      md5: ad8435b7d50fabf0404b5766615d2312
+      md5: e07bb18322b932c83a9b38615fde8bc9
       size: 84637304
-    - path: pretrained_weights.h5
-      md5: da0d798fbfbc0a18e83851206c6d3e5d
+    - path: weights.h5
+      md5: d5df97ac43b0bd6cc6a474fde44165f0
       size: 71760672
   evaluate:
     cmd: python src/evaluate.py
     deps:
     - path: history.pkl
-      md5: 6cfa7f80059868580bee732d136559d1
+      md5: 4f4a236bd85a476f529ae37d8d5b90d9
       size: 108
     - path: model.h5
-      md5: ad8435b7d50fabf0404b5766615d2312
+      md5: e07bb18322b932c83a9b38615fde8bc9
       size: 84637304
     - path: src/evaluate.py
       md5: 23ca865c0ba8e25d45ba12b01df99440
       size: 2345
     outs:
     - path: plot.json
-      md5: bc0f3373ba13017e68ec50caebd37aac
-      size: 72
+      md5: 8cf2fc54adc37b9eb0e131c611a7d20b
+      size: 71
     - path: score.json
-      md5: 125cea64c0b08ed5a0fda2a48e4f9879
-      size: 27
+      md5: 0b330d84fb9e05d09cbdca4b73229b63
+      size: 26
