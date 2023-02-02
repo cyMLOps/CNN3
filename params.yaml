@@ -3,4 +3,4 @@
 train:
     lr: 0.005
     momentum: 0.95
-    epochs: 2
+    epochs: 1

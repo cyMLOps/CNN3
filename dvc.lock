@@ -30,30 +30,30 @@ stages:
         train:
           lr: 0.005
           momentum: 0.95
-          epochs: 2
+          epochs: 1
     outs:
     - path: history.pkl
-      md5: afb973c4f6638a2728e2518213a05a5a
-      size: 148
+      md5: 6fd52dd8f5fc5fe89f5384c0366172a6
+      size: 108
     - path: model.h5
-      md5: 1bc1d6b89751996bccd2baa22b45105b
+      md5: b4f12dfe67fad6d1f280d9f3b7746192
       size: 84637304
   evaluate:
     cmd: python src/evaluate.py
     deps:
     - path: history.pkl
-      md5: afb973c4f6638a2728e2518213a05a5a
-      size: 148
+      md5: 6fd52dd8f5fc5fe89f5384c0366172a6
+      size: 108
     - path: model.h5
-      md5: 1bc1d6b89751996bccd2baa22b45105b
+      md5: b4f12dfe67fad6d1f280d9f3b7746192
       size: 84637304
     - path: src/evaluate.py
       md5: 23ca865c0ba8e25d45ba12b01df99440
       size: 2345
     outs:
     - path: plot.json
-      md5: cee9e07c71e9ee9ab1767870cc1ef8db
-      size: 136
+      md5: 822981db7bfb9f9239762401facdef0a
+      size: 73
     - path: score.json
-      md5: ffa6e3961351b4b18463ad2f1ba9d79b
+      md5: 4e7a5ef28141b9b0cc42ced18cec60bb
       size: 27
