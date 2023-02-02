@@ -49,10 +49,11 @@ def run_fit():
 	epochs = yaml.safe_load(open('params.yaml'))['train']['epochs']
 	history = model.fit(train_it, steps_per_epoch=len(train_it),
 		validation_data=test_it, validation_steps=len(test_it), epochs=epochs, verbose=1)
-    # save model
+    # save model, history, weights
 	model.save('model.h5')
 	pickle.dump(history.history, open('history.pkl', 'wb'))
-	print('-----file created-------')
+	model.save_weights('pretrained_weights.h5')
+	print('-------files created-------')
     
     
 # entry point, run the test harness

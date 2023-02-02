@@ -16,6 +16,7 @@ stages:
     outs:
     - history.pkl
     - model.h5
+    - pretrained_weights.h5
   evaluate:
     cmd: python src/evaluate.py
     deps:

@@ -23,8 +23,8 @@ stages:
       size: 571915376
       nfiles: 25000
     - path: src/train.py
-      md5: b7baa01c34208b44f3e56455361aec62
-      size: 2168
+      md5: a0d918a77afc55b07a3922d0b0a134ed
+      size: 2235
     params:
       params.yaml:
         train:
@@ -33,27 +33,30 @@ stages:
           epochs: 1
     outs:
     - path: history.pkl
-      md5: 6fd52dd8f5fc5fe89f5384c0366172a6
+      md5: 6cfa7f80059868580bee732d136559d1
       size: 108
     - path: model.h5
-      md5: b4f12dfe67fad6d1f280d9f3b7746192
+      md5: ad8435b7d50fabf0404b5766615d2312
       size: 84637304
+    - path: pretrained_weights.h5
+      md5: da0d798fbfbc0a18e83851206c6d3e5d
+      size: 71760672
   evaluate:
     cmd: python src/evaluate.py
     deps:
     - path: history.pkl
-      md5: 6fd52dd8f5fc5fe89f5384c0366172a6
+      md5: 6cfa7f80059868580bee732d136559d1
       size: 108
     - path: model.h5
-      md5: b4f12dfe67fad6d1f280d9f3b7746192
+      md5: ad8435b7d50fabf0404b5766615d2312
       size: 84637304
     - path: src/evaluate.py
       md5: 23ca865c0ba8e25d45ba12b01df99440
       size: 2345
     outs:
     - path: plot.json
-      md5: 822981db7bfb9f9239762401facdef0a
-      size: 73
+      md5: bc0f3373ba13017e68ec50caebd37aac
+      size: 72
     - path: score.json
-      md5: 4e7a5ef28141b9b0cc42ced18cec60bb
+      md5: 125cea64c0b08ed5a0fda2a48e4f9879
       size: 27
