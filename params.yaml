@@ -2,5 +2,5 @@
 # to pass through strings / integers
 train:
     lr: 0.005
-    momentum: 0.9
+    momentum: 0.95
     epochs: 10
